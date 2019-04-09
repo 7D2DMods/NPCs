@@ -1,0 +1,8 @@
+<configs>
+    <append xpath="/entity_classes">
+      <entity_class name="SDXTemplate" extends="zombieTemplateMale">
+        <property name="AvatarController" value="MecanimSDX, Mods" />
+        <property name="RootMotion" value="false" />
+      </entity_class>
+    </append>
+</configs>

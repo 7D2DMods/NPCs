@@ -1,0 +1,6 @@
+<map id="EntityAliveSDX.RestoreSpeed" name="EntityAliveSDX.RestoreSpeed">
+<area shape="rect" id="node1" title=" " alt="" coords="493,42,688,69"/>
+<area shape="rect" id="node2" href="$dc/dd7/class_entity_alive_s_d_x.html#a090c617707f4c255fc913c1161142b54" title=" " alt="" coords="265,5,436,47"/>
+<area shape="rect" id="node3" href="$dc/dd7/class_entity_alive_s_d_x.html#a8383353e93bd3d163282334700da4d9c" title=" " alt="" coords="256,71,445,98"/>
+<area shape="rect" id="node4" href="$db/d3c/class_dialog_action_execute_command_s_d_x.html#a97c8e46376e72ed90822f68886dd52ba" title=" " alt="" coords="5,64,208,105"/>
+</map>

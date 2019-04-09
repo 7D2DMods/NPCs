@@ -1,0 +1,10 @@
+<map id="EntityAliveSDX.CanExecuteTask" name="EntityAliveSDX.CanExecuteTask">
+<area shape="rect" id="node1" title=" " alt="" coords="271,202,481,229"/>
+<area shape="rect" id="node2" href="$d8/d59/class_e_a_i_approach_and_follow_target_s_d_x.html#a4bd593810e37cd0adef6eef1575f44a9" title=" " alt="" coords="17,5,211,47"/>
+<area shape="rect" id="node3" href="$d8/d59/class_e_a_i_approach_and_follow_target_s_d_x.html#aa6c1b4815975ccb63e7af74710fa4936" title=" " alt="" coords="17,71,211,112"/>
+<area shape="rect" id="node4" href="$d8/d59/class_e_a_i_approach_and_follow_target_s_d_x.html#af6a82c01d51c142df19ce0ae9f24d722" title=" " alt="" coords="17,136,211,177"/>
+<area shape="rect" id="node5" href="$d0/d8c/class_e_a_i_loot_location_s_d_x.html#ae2c253e985cb45c5a41a43855aeef878" title=" " alt="" coords="5,202,223,229"/>
+<area shape="rect" id="node6" href="$d0/d8c/class_e_a_i_loot_location_s_d_x.html#aaa159c3b6aef2e88fdc2cf7a1cbf383a" title=" " alt="" coords="15,253,213,279"/>
+<area shape="rect" id="node7" href="$de/dd5/class_e_a_i_patrol_s_d_x.html#a9039242e863a0e5a0381c01d4204487f" title=" " alt="" coords="25,303,203,330"/>
+<area shape="rect" id="node8" href="$de/dd5/class_e_a_i_patrol_s_d_x.html#a1adab2eea226eb846a0fe918e9032fcf" title=" " alt="" coords="35,354,193,381"/>
+</map>

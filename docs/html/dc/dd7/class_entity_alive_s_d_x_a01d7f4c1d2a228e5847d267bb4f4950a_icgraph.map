@@ -1,0 +1,9 @@
+<map id="EntityAliveSDX.SetOwner" name="EntityAliveSDX.SetOwner">
+<area shape="rect" id="node1" title=" " alt="" coords="767,63,936,90"/>
+<area shape="rect" id="node2" href="$dc/dd7/class_entity_alive_s_d_x.html#a702cd3d5ba4756215a63280306dd7080" title=" " alt="" coords="544,13,679,39"/>
+<area shape="rect" id="node5" href="$d2/d79/class_reward_give_n_p_c_s_d_x.html#ac25cf8c7da450ff19403ac2be58d40cd" title=" " alt="" coords="504,63,719,90"/>
+<area shape="rect" id="node6" href="$d9/d6a/class_reward_reassign_n_p_c_s_d_x.html#a3b469f6ce06b7a05b7a680fabb8fe5ad" title=" " alt="" coords="505,115,717,156"/>
+<area shape="rect" id="node3" href="$dc/dd7/class_entity_alive_s_d_x.html#a8383353e93bd3d163282334700da4d9c" title=" " alt="" coords="261,13,451,39"/>
+<area shape="rect" id="node4" href="$db/d3c/class_dialog_action_execute_command_s_d_x.html#a97c8e46376e72ed90822f68886dd52ba" title=" " alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node7" href="$d9/d6a/class_reward_reassign_n_p_c_s_d_x.html#a8433652ccfadd1af0de4179945a86092" title=" " alt="" coords="256,115,456,156"/>
+</map>
