@@ -61,8 +61,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/d89/_dialog_action_open_dialog_s_d_x_8cs_source.html",
-"de/dd5/class_e_a_i_patrol_s_d_x.html#a1adab2eea226eb846a0fe918e9032fcf"
+"d6/d47/class_entity_animal_hal_ranged.html",
+"de/d40/_e_a_i_set_as_target_nearest_enemy_s_d_x_8cs.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

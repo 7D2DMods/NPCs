@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['damageentity',['DamageEntity',['../dc/dd7/class_entity_alive_s_d_x.html#a289eae1e8162bdd52315a3287b42dbbe',1,'EntityAliveSDX']]],
+  ['damageentity',['DamageEntity',['../df/d18/class_entity_animal_hal.html#a6348e35ad8819cbe7f3a7e5c21458866',1,'EntityAnimalHal.DamageEntity()'],['../dc/dd7/class_entity_alive_s_d_x.html#a289eae1e8162bdd52315a3287b42dbbe',1,'EntityAliveSDX.DamageEntity()']]],
   ['debuglog',['DebugLog',['../d7/d8c/class_animation_change.html#abf63d34eb2fd1c3e9d2e051bc2888d09',1,'AnimationChange']]],
   ['dialogactionexecutecommandsdx',['DialogActionExecuteCommandSDX',['../db/d3c/class_dialog_action_execute_command_s_d_x.html',1,'']]],
   ['dialogactionexecutecommandsdx_2ecs',['DialogActionExecuteCommandSDX.cs',['../d9/d02/_dialog_action_execute_command_s_d_x_8cs.html',1,'']]],

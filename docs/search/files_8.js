@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['questactiongivebuffsdx_2ecs',['QuestActionGiveBuffSDX.cs',['../dc/d14/_quest_action_give_buff_s_d_x_8cs.html',1,'']]],
-  ['questactionreplaceentitysdx_2ecs',['QuestActionReplaceEntitySDX.cs',['../d4/d40/_quest_action_replace_entity_s_d_x_8cs.html',1,'']]],
-  ['questactionspawnentitysdx_2ecs',['QuestActionSpawnEntitySDX.cs',['../dc/dae/_quest_action_spawn_entity_s_d_x_8cs.html',1,'']]],
-  ['questhooks_2ecs',['QuestHooks.cs',['../d5/d7c/_quest_hooks_8cs.html',1,'']]]
+  ['patcherhaldll_2ecs',['PatcherHalDll.cs',['../d2/d15/_patcher_hal_dll_8cs.html',1,'']]],
+  ['patchscript_2ecs',['PatchScript.cs',['../d4/df0/_s_d_x___dialog_2_patch_scripts_2_patch_script_8cs.html',1,'(Global Namespace)'],['../df/d97/_s_d_x___e_a_i_tasks_2_patch_scripts_2_patch_script_8cs.html',1,'(Global Namespace)'],['../d1/de9/_s_d_x___entity_alive_s_d_x_2_patch_scripts_2_patch_script_8cs.html',1,'(Global Namespace)']]]
 ];

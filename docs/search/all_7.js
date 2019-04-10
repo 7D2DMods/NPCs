@@ -1,6 +1,8 @@
 var searchData=
 [
   ['hadpath',['hadPath',['../dc/db8/class_e_a_i_maslow_level1_s_d_x.html#ad02259fefd140ce3cf568a0d72200da8',1,'EAIMaslowLevel1SDX']]],
+  ['haldllfixespatcher',['HalDllFixesPatcher',['../dc/ddd/class_hal_dll_fixes_patcher.html',1,'']]],
+  ['halhelperevents_2ecs',['HalHelperEvents.cs',['../d5/d14/_hal_helper_events_8cs.html',1,'']]],
   ['handlespawnentities',['HandleSpawnEntities',['../de/de6/class_quest_action_replace_entity_s_d_x.html#ace14a3f3bb754bb3c6f92376820fb936',1,'QuestActionReplaceEntitySDX.HandleSpawnEntities()'],['../d9/db1/class_quest_action_spawn_entity_s_d_x.html#af16565ac6f58bf902a6b0168b903a48d',1,'QuestActionSpawnEntitySDX.HandleSpawnEntities()']]],
   ['head',['head',['../d0/dd8/class_mecanim_s_d_x.html#a7004be4cf215d662e125528e535c3ccb',1,'MecanimSDX']]],
   ['headdismembered',['headDismembered',['../d0/dd8/class_mecanim_s_d_x.html#ae4c0ec19c6257ddb635beb20df2511c6',1,'MecanimSDX']]],

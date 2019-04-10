@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['productionitem',['ProductionItem',['../d9/dde/struct_e_a_i_maslow_level1_s_d_x_1_1_production_item.html',1,'EAIMaslowLevel1SDX']]]
+  ['objectivebuffsdx',['ObjectiveBuffSDX',['../d1/d4c/class_objective_buff_s_d_x.html',1,'']]],
+  ['objectivegotopoisdx',['ObjectiveGotoPOISDX',['../d0/d27/class_objective_goto_p_o_i_s_d_x.html',1,'']]]
 ];

@@ -47,6 +47,11 @@ var hierarchy =
     [ "EntityAlive", null, [
       [ "EntityAliveEventSpawnerSDX", "d6/dc8/class_entity_alive_event_spawner_s_d_x.html", null ]
     ] ],
+    [ "EntityAnimalStag", null, [
+      [ "EntityAnimalHal", "df/d18/class_entity_animal_hal.html", [
+        [ "EntityAnimalHalRanged", "d6/d47/class_entity_animal_hal_ranged.html", null ]
+      ] ]
+    ] ],
     [ "EntityBandit", null, [
       [ "EntityBanditSDX", "d5/da5/class_entity_bandit_s_d_x.html", null ]
     ] ],
@@ -62,6 +67,7 @@ var hierarchy =
       [ "AnimationChange", "d7/d8c/class_animation_change.html", null ],
       [ "EAITaskPatches", "d5/d0f/class_e_a_i_task_patches.html", null ],
       [ "EntityAliveSDXPatcher", "dc/d8b/class_entity_alive_s_d_x_patcher.html", null ],
+      [ "HalDllFixesPatcher", "dc/ddd/class_hal_dll_fixes_patcher.html", null ],
       [ "ItemActionsChange", "d2/d66/class_item_actions_change.html", null ],
       [ "QuestChanges", "d8/dc6/class_quest_changes.html", null ],
       [ "SDXDialog", "d1/db8/class_s_d_x_dialog.html", null ]

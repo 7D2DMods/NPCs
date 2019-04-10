@@ -15,6 +15,8 @@ var searchData=
   ['entityalivefarminganimalsdx',['EntityAliveFarmingAnimalSDX',['../d4/de6/class_entity_alive_farming_animal_s_d_x.html',1,'']]],
   ['entityalivesdx',['EntityAliveSDX',['../dc/dd7/class_entity_alive_s_d_x.html',1,'']]],
   ['entityalivesdxpatcher',['EntityAliveSDXPatcher',['../dc/d8b/class_entity_alive_s_d_x_patcher.html',1,'']]],
+  ['entityanimalhal',['EntityAnimalHal',['../df/d18/class_entity_animal_hal.html',1,'']]],
+  ['entityanimalhalranged',['EntityAnimalHalRanged',['../d6/d47/class_entity_animal_hal_ranged.html',1,'']]],
   ['entitybanditsdx',['EntityBanditSDX',['../d5/da5/class_entity_bandit_s_d_x.html',1,'']]],
   ['entitysurvivorsdx',['EntitySurvivorSDX',['../de/d89/class_entity_survivor_s_d_x.html',1,'']]]
 ];
