@@ -24,6 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "The NPC Project", "index.html", [
+    [ "Introduction", "index.html", null ],
     [ "AnimationSDX", "d6/d5a/md__mods__animation_s_d_x__read_me.html", null ],
     [ "aXUi_Dialog", "d1/d21/md__mods_a_x_ui__dialog__read_me.html", null ],
     [ "Blooms Animal Husbandry", "de/d47/md__mods__blooms__animal_husbandry__read_me.html", null ],
