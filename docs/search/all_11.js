@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['sdx_20buffs',['SDX Buffs',['../da/d36/md__s_d_x__buffs__r_e_a_d_m_e.html',1,'']]],
-  ['sdx_20dialog',['SDX Dialog',['../d4/d87/md__s_d_x__dialog__read_me.html',1,'']]],
-  ['sdx_20entityalive',['SDX EntityAlive',['../d0/d9f/md__s_d_x__entity_alive_s_d_x__read_me.html',1,'']]],
-  ['sdx_5fitemactions',['SDX_ItemActions',['../d7/d2a/md__s_d_x__item_actions__r_e_a_d_m_e.html',1,'']]],
-  ['sdx_20quests',['SDX Quests',['../d2/d7a/md__s_d_x__quests__r_e_a_d_m_e.html',1,'']]],
-  ['sdx_20spawnfrom_20entity_20group',['SDX SpawnFrom Entity Group',['../d9/d02/md__s_d_x__spawn_from_entity_group__read_me.html',1,'']]],
+  ['sdx_20buffs',['SDX Buffs',['../de/d0a/md__mods__s_d_x__buffs__r_e_a_d_m_e.html',1,'']]],
+  ['sdx_20dialog',['SDX Dialog',['../d6/dd5/md__mods__s_d_x__dialog__read_me.html',1,'']]],
+  ['sdx_20entityalive',['SDX EntityAlive',['../d9/df6/md__mods__s_d_x__entity_alive_s_d_x__read_me.html',1,'']]],
+  ['sdx_5fitemactions',['SDX_ItemActions',['../d1/d71/md__mods__s_d_x__item_actions__r_e_a_d_m_e.html',1,'']]],
+  ['sdx_20quests',['SDX Quests',['../d1/dbf/md__mods__s_d_x__quests__r_e_a_d_m_e.html',1,'']]],
+  ['sdx_20spawnfrom_20entity_20group',['SDX SpawnFrom Entity Group',['../de/d0d/md__mods__s_d_x__spawn_from_entity_group__read_me.html',1,'']]],
   ['scanforblockinlist',['ScanForBlockInList',['../dc/db8/class_e_a_i_maslow_level1_s_d_x.html#a3a7a46cd66886329924c53823a9b55cc',1,'EAIMaslowLevel1SDX']]],
   ['scanfortileentityinlist',['ScanForTileEntityInList',['../d0/d8c/class_e_a_i_loot_location_s_d_x.html#a9a88913841b1fa33d45099935a0d5520',1,'EAILootLocationSDX.ScanForTileEntityInList()'],['../dc/db8/class_e_a_i_maslow_level1_s_d_x.html#a4da7fa23edca737091a05a5f9926bc9c',1,'EAIMaslowLevel1SDX.ScanForTileEntityInList()']]],
   ['sdxdialog',['SDXDialog',['../d1/db8/class_s_d_x_dialog.html',1,'']]],
