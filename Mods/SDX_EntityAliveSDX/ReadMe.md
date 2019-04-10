@@ -11,13 +11,13 @@ This is the new base class, which inherits from EntityNPC and all the sub classe
 NPCs can accept orders by interacting with them and selecting one of pre-made options. Using a combination of XML dialog settings and code, some dialog options will not appear unless they make sense. For example, 
 when you first meet an NPC, you will not be able to give them orders. 
 
-NPCs can be hired either by paying their Hire Cost, completing a quest line, or have some sort of incenntive for them to follow.
+NPCs can be hired either by paying their Hire Cost, completing a quest line, or have some sort of incentive for them to follow.
 
-Using the new Maslow AI Task, along with the buff system, NPCs can consume food and water.
+Using the new Maslow AI Task, along with the buff system, NPCs require and can consume food and water.
 
 ##Hiring NPCs##
 
-Each unique NPC can have its own hiring cost and currency, available through the XML properties.  By default, this is 1000 casino Coins. The HireCurrency is any available Item, and that item will be removed 
+Each unique NPC can have its own hiring cost and currency, available through the XML properties.  By default, this is 1000 casino coins. The HireCurrency is any available Item, and that item will be removed 
 from your inventory when you hire them. 
 
 ####Examples:####
@@ -34,7 +34,7 @@ Unique Item:
  <property name="HireCurrency" value="BloomsFamilyHeirloom_1"/>
 ~~~~~~~~~~~~~~~~~
 
-Currently, all NPCs are permanent hires. Once NPCs are hired, your entity ID is stored with the entity as a cvar "Leader". As soon as they are hired, they'll begin to follow you, and try to keep pace with your speed.
+Currently, all NPCs are hired for the duration of their life. Once NPCs are hired, your entity ID is stored with the entity as a cvar "Leader". As soon as they are hired, they'll begin to follow you, and try to keep pace with your speed.
 
 Initially, unhired NPCs will only show a few options in the dialog. However, when they are hired, they can do more for you.
 
@@ -47,14 +47,14 @@ Initially, unhired NPCs will only show a few options in the dialog. However, whe
 \li GuardHere - The entity will stand in your place, facing your initial direction. This will set the GuardPosition, allow the guard to return to that spot after a fight.
 \li Wander - The entity will walk around the area
 \li SetPatrol - The entity will begin following your foot steps, recording them as Patrol Coordinates
-\li Patrol - The entity, if it has Patrol Coordinates, will begin tracing the coordinates back and forth. This option only shows if it has Patrol Coordinates
+\li Patrol - The entity, if it has patrol coordinates, will begin tracing the coordinates back and forth. This option only shows if it has Patrol Coordinates
 \li Hire - If unhired, the entity will allow you to hire them. Their cost depends on their XML settings.
 \li OpenInventory - This will open their inventory
 \li Loot - This tells the entity to Loot the POI you are in now.
 
 Options can be filtered through using the SDX_Dialog class that adds new conditions to show statements based on if they are hired. Not all NPCs need to support all the tasks.
 
-Here's a sample Dialog XML that show's the Hire option, if the NPC is not hired, and will show ShowMe and StayHere orders if it is hired.
+Here's a sample Dialog XML that show's the Hire option. If the NPC is not hired, and will not show the ShowMe and StayHere orders until it is hired.
 
 ####Sample Dialog####
 
@@ -83,7 +83,7 @@ Here's a sample Dialog XML that show's the Hire option, if the NPC is not hired,
 
 ###Recommended AI Tasks###
 -------------------
-The following AI tasks were used in testing well rounded NPCs. It is recommended taht you start off with this AI Tasks, and then customize as needed.
+The following AI tasks were used in testing well rounded NPCs. It is recommended that you start off with this AI Task list, and then customize as needed.
 
 ~~~~~~~~~~~~~~~~{.xml}
 <property name="AITask-1" value="BreakBlock"/>
@@ -103,12 +103,12 @@ The following AI tasks were used in testing well rounded NPCs. It is recommended
 
 ###Maslow###
 -------------------
-Losely modelled around Maslow's Hierachy of Needs, the NPCs have requirements based on a combination of buffs and a new AI task. This buff is applied through the entityclass entry, and controls the NPCs' food and 
-drink requirements. Over time, the NPCs will get hungry and thirsty, and, using the EAIMaslowLevel1SDX class, will seek out food and water through its configuration.
+Loosely modeled around Maslow's Hierachy of Needs, the NPCs have requirements based on a combination of buffs and a new AI task. This buff is applied through the entityclass entry, and controls the NPCs' food and 
+drink requirements. Over time, the NPCs will get hungry and thirsty, and, using the EAIMaslowLevel1SDX class, will seek out food and water through its xml configuration.
 
 ####Food and Water####
 
-NPCs will look for food and water through their configured bins. Triggered by the HungryBuffs and ThirstyBuffs, the AI task will seek out food and water as needed, and consume it. Once satisfied, it'll continue
+NPCs will look for food and water through their xml configured bins. Triggered by the HungryBuffs and ThirstyBuffs, the AI task will seek out food and water as needed, and consume it. Once satisfied, it'll continue
  to wander.
 ~~~~~~~~~~~~~~~~{.xml}
 <!-- which containers to look for food in -->
@@ -122,7 +122,7 @@ NPCs will look for food and water through their configured bins. Triggered by th
 <property name="HungryBuffs" value="buffStatusHungry1,buffStatusHungry2" />
 ~~~~~~~~~~~~~~~~
 
-Each entity can be configured to eat a certain food type. The NPCs will scan for the FoodBins, then search inside and consume one of the listed food items. The value of food they recieve is hard coded in the EAIMaslowLevel1
+Each entity can be configured to eat a certain food type. The NPCs will scan for the FoodBins, then search inside and consume one of the listed food items. The value of food they receive is hard coded in the EAIMaslowLevel1
 class initially, since some food items may not be have a food value, such as the hayBaleBlock. All foods satisfy the same amount of hunger.
 
 Once an entity becomes too hungry or thirsty, it will start taking damage until it eventually dies.
@@ -168,7 +168,7 @@ NPCs are controlled mainly through the buff system. The default buffs are listed
 
 #### Names ####
 
-Each entity may have one or more names, configured through the XML files. When the ntity is first spawned in, a name is randomly picked by the XML. The entity will be known as "Name the EntityName" in log files, along
+Each entity may have one or more names, configured through the XML files. When the entity is first spawned in, a name is randomly picked by the XML. The entity will be known as "Name the EntityName" in log files, along
 with its entity ID. 
 
 ~~~~~~~~~~~~~~~~{.xml}

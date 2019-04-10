@@ -20,7 +20,7 @@ This XML defines the dialog options for an NPC.
     greeting_type="nearby"
     stance="Like" voice_set="trader"
     trader_id="1" dialog_id="GenericNPCWithQuest"
-    quest_list="npcqest" />
+    quest_list="npcquest" />
   </append>
 </configs>
 ~~~~~~~~~~~~~~~
@@ -31,7 +31,7 @@ The id="spheretest" would be used as the NPCID on the entity class, and links th
 <property name="NPCID" value="spheretest"/>
 ~~~~~~~~~~~~~~~
 
-the dialog-id, "GenericNPC" makes a reference to the dialog.xml file, and brings up the chat and interaction window.
+The dialog-id, "GenericNPCWithQuest" makes a reference to the dialog.xml file, and brings up the chat and interaction window.
 
 ~~~~~~~~~~~~~~~{.xml}
    <!-- Generic Dialog with Quest options (if quests are available -->

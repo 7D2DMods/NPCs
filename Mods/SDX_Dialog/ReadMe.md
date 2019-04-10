@@ -1,7 +1,7 @@
 SDX Dialog
 ==========
 
-The SDX Dialog adds in new actions and triggers used for the dialogs.xml, as well as include new UI controllers.
+The SDX Dialog adds in new actions and triggers used for the dialogs.xml, and also includes new UI controllers.
 
 
 DialogActionExecuteCommandSDX

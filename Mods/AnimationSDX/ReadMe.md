@@ -1,7 +1,7 @@
 AnimationSDX
 =======================
 
-Provides a mecanim animation layer for use for external entities to control their animations. This version does not support Root Motion, so must be disabled in the Unity3d bundle in the XML.
+Provides a Mecanim animation layer for use for external entities to control their animations. This version does not support Root Motion, so that must be disabled in the animator component of the Unity3d bundle and in XML as shown below.
 
 A sample entityclass entry called SDXTemplate is provided as an easy way to include the MecanimSDX class. It extends off of the zombieTemplateMale.
 
