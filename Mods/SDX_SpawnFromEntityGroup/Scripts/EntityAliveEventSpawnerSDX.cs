@@ -111,7 +111,7 @@ class EntityAliveEventSpawnerSDX : EntityAlive
     {
         // Grab a random position.
         Vector3 transformPos;
-        if (!this.world.GetRandomSpawnPositionMinMaxToPosition(this.world.GetPrimaryPlayer().position, 2, 6, 2, true, out transformPos, false))
+        if (!this.world.GetRandomSpawnPositionMinMaxToPosition(this.position, 2, 6, 2, true, out transformPos, false))
         {
             DisplayLog(" No position available");
             return;
@@ -134,7 +134,10 @@ class EntityAliveEventSpawnerSDX : EntityAlive
             {
                 DisplayLog(" Setting Leader ID to: " + this.LeaderEntityID);
                 (NewEntity as EntityAliveSDX).Buffs.SetCustomVar("Leader", this.LeaderEntityID, true);
-                (NewEntity as EntityAliveSDX).Buffs.SetCustomVar("CurrentOrder", (float)EntityAliveSDX.Orders.Follow, true);
+
+                // For animals
+                (NewEntity as EntityAliveSDX).Buffs.SetCustomVar("Herd", this.LeaderEntityID, true);
+                //(NewEntity as EntityAliveSDX).Buffs.SetCustomVar("CurrentOrder", (float)EntityAliveSDX.Orders.Follow, true);
 
             }
         }
