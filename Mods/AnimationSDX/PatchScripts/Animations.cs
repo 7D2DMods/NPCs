@@ -15,11 +15,12 @@ public class AnimationChange : IPatcherMod
     {
         Console.WriteLine("== Animation Patcher===");
         var gm = module.Types.First(d => d.Name == "LegacyAvatarController");
-        var field = gm.Fields.FirstOrDefault(d => d.Name == "animSyncWaitTime");
-        SetFieldToPublic(field);
+      //  var field = gm.Fields.First(d => d.Name == "animSyncWaitTime");
+        //SetFieldToPublic(field);
 
-        field = gm.Fields.FirstOrDefault(d => d.Name == "hitDuration");
+        var field = gm.Fields.First(d => d.Name == "hitDuration");
         SetFieldToPublic(field);
+        //SetFieldToPublic(field);
         return true;
     }
 
@@ -30,12 +31,12 @@ public class AnimationChange : IPatcherMod
     {
 
         Log("Linking");
-        var myClass = gameModule.Types.First(d => d.Name == "EModelBase");
-        var myMethod = myClass.Methods.First(d => d.Name == "Init");
+       // var myClass = gameModule.Types.First(d => d.Name == "EModelBase");
+      //  var myMethod = myClass.Methods.First(d => d.Name == "Init");
        // UpdateEmodelBase(myClass, myMethod);
 
-        myMethod = myClass.Methods.First(d => d.Name == "InitFromPrefab");
-        //UpdateEmodelBase(myClass, myMethod);
+      //  myMethod = myClass.Methods.First(d => d.Name == "InitFromPrefab");
+       // UpdateEmodelBase(myClass, myMethod);
 
         return true;
     }
@@ -92,14 +93,11 @@ public class AnimationChange : IPatcherMod
     // Helper functions to allow us to access and change variables that are otherwise unavailable.
     private void SetMethodToVirtual(MethodDefinition meth)
     {
-
         meth.IsVirtual = true;
     }
 
     private void SetFieldToPublic(FieldDefinition field)
     {
-        if (field == null)
-            return;
         field.IsFamily = false;
         field.IsPrivate = false;
         field.IsPublic = true;
@@ -107,9 +105,6 @@ public class AnimationChange : IPatcherMod
     }
     private void SetMethodToPublic(MethodDefinition field)
     {
-        if (field == null)
-            return;
-
         field.IsFamily = false;
         field.IsPrivate = false;
         field.IsPublic = true;

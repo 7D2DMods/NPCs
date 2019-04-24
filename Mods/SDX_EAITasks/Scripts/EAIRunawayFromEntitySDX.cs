@@ -51,8 +51,9 @@ class EAIRunAwayFromEntitySDX :  EAIRunawayWhenHurt
                 this.fleeDistance = 20;
                 break;
             case FactionManager.Relationship.Neutral:
-                this.fleeDistance = 10;
-                break;
+                //this.fleeDistance = 10;
+                //break;
+                return false;
             case FactionManager.Relationship.Like:
                 return false;
             case FactionManager.Relationship.Love:

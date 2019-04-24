@@ -103,10 +103,10 @@ class EntityAliveFarmingAnimalSDX : EntityAliveSDX
         if (this.Buffs.HasCustomVar("Herd") )
         {
             EntityAliveFarmingAnimalSDX temp = this.world.GetEntity((int)this.Buffs.GetCustomVar("Herd")) as EntityAliveFarmingAnimalSDX;
-            if (temp)
+            if (temp && temp.entityId != this.entityId)
             {
                 this.Buffs.SetCustomVar("CurrentOrder", (float)Orders.None, true);
-             //   this.setHomeArea(temp.GetBlockPosition(), 10);
+                this.setHomeArea(temp.GetBlockPosition(), 10);
             }
         }
         base.OnUpdateLive();

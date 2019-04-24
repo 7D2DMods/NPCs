@@ -28,7 +28,7 @@ public class EntityAliveSDX : EntityNPC
     int DefaultTraderID = 0;
 
     public Vector3 GuardPosition = Vector3.zero;
-
+    public Vector3 GuardLookPosition = Vector3.zero;
     String strSoundAccept = "";
     String strSoundReject = "";
 
@@ -39,6 +39,8 @@ public class EntityAliveSDX : EntityNPC
 
     // Default name
     String strMyName = "Bob";
+    String strTitle;
+
     public System.Random random = new System.Random();
 
     private bool blDisplayLog = true;
@@ -46,6 +48,16 @@ public class EntityAliveSDX : EntityNPC
     {
         if (blDisplayLog && !this.IsDead())
             Debug.Log(this.entityName + ": " + strMessage);
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Debug.Log("Awake()");
+        this.moveHelper = new EntityMoveHelperSDX(this);
+
+
+        Debug.Log(" Move Helper Type: " + this.moveHelper.GetType());
     }
 
     public virtual bool CheckIncentive(List<String> lstIncentives, EntityAlive entity)
@@ -89,30 +101,11 @@ public class EntityAliveSDX : EntityNPC
 
     public bool CanExecuteTask(Orders order)
     {
-   
-
         // If we don't match our current order, don't execute
         if (this.Buffs.HasCustomVar("CurrentOrder"))
         {
             if (this.Buffs.GetCustomVar("CurrentOrder") != (float)order)
                 return false;
-
-            if (this.Buffs.GetCustomVar("CurrentOrder") == (float)Orders.Stay)
-            {
-                // If we have an attack or revenge target, don't execute task
-                if (this.GetAttackTarget() != null && this.GetAttackTarget().IsAlive() )
-                    return false;
-
-                if (this.GetRevengeTarget() != null && this.GetRevengeTarget().IsAlive())
-                    return false;
-
-                if (this.GuardPosition != Vector3.zero && this.GuardPosition != this.position)
-                    this.getMoveHelper().SetMoveTo(this.GuardPosition, false);
-
-                return true;
-            }
-
- 
 
         }
 
@@ -156,6 +149,13 @@ public class EntityAliveSDX : EntityNPC
             strMyName = Names[index];
         }
 
+        if (entityClass.Properties.Values.ContainsKey("Titles"))
+        {
+            string text = entityClass.Properties.Values["Titles"];
+            string[] Names = text.Split(',');
+            int index = random.Next(0, Names.Length);
+            strTitle = Names[index];
+        }
         if (entityClass.Properties.Values.ContainsKey("HireCost"))
             HireCost = int.Parse(entityClass.Properties.Values["HireCost"]);
         if (entityClass.Properties.Values.ContainsKey("HireCurrency"))
@@ -166,8 +166,68 @@ public class EntityAliveSDX : EntityNPC
         }
 
 
+        // This code works, in that we can extend the boundary box and entitys won't go into blocks, but it'll eventually float above and climb on other entities.
+
+        //if (entityClass.Properties.Classes.ContainsKey("Boundary"))
+        //{
+        //    DisplayLog(" Found Bandary Settings");
+        //    String strBoundaryBox = "0,0,0";
+        //    String strCenter = "0,0,0";
+        //    DynamicProperties dynamicProperties3 = entityClass.Properties.Classes["Boundary"];
+        //    foreach (KeyValuePair<string, object> keyValuePair in dynamicProperties3.Values.Dict.Dict)
+        //    {
+        //        DisplayLog("Key: " + keyValuePair.Key);
+        //        if (keyValuePair.Key == "BoundaryBox")
+        //        {
+        //            DisplayLog(" Found a Boundary Box");
+        //            strBoundaryBox = dynamicProperties3.Values[keyValuePair.Key];
+        //            continue;
+        //        }
+
+        //        if (keyValuePair.Key == "Center")
+        //        {
+        //            DisplayLog(" Found a Center");
+        //            strCenter = dynamicProperties3.Values[keyValuePair.Key];
+        //            continue;
+        //        }
+        //    }
+
+        //    Vector3 Box = StringParsers.ParseVector3(strBoundaryBox, 0, -1);
+        //    Vector3 Center = StringParsers.ParseVector3(strCenter, 0, -1);
+        //    ConfigureBounaryBox(Box, Center);
+        //}
     }
 
+    public void ConfigureBounaryBox(Vector3 newSize, Vector3 center)
+    {
+        BoxCollider component = base.gameObject.GetComponent<BoxCollider>();
+        if (component)
+        {
+            DisplayLog(" Box Collider: " + component.size.ToCultureInvariantString());
+            DisplayLog(" Current Boundary Box: " + this.boundingBox.ToCultureInvariantString());
+            // Re-adjusting the box collider     
+            component.size = newSize;
+
+            this.scaledExtent = new Vector3(component.size.x / 2f * base.transform.localScale.x, component.size.y / 2f * base.transform.localScale.y, component.size.z / 2f * base.transform.localScale.z);
+            Vector3 vector = new Vector3(component.center.x * base.transform.localScale.x, component.center.y * base.transform.localScale.y, component.center.z * base.transform.localScale.z);
+            this.boundingBox = global::BoundsUtils.BoundsForMinMax(-this.scaledExtent.x, -this.scaledExtent.y, -this.scaledExtent.z, this.scaledExtent.x, this.scaledExtent.y, this.scaledExtent.z);
+            this.boundingBox.center = this.boundingBox.center + vector;
+
+            // component.center = new Vector3(newSize.x, newSize.y / 2, newSize.z);
+            this.nativeCollider = component;
+            //this.scaledExtent = component.size;
+            //this.boundingBox = BoundsUtils.BoundsForMinMax(newSize.x, newSize.y, newSize.z, newSize.x, newSize.x, newSize.z );
+            if (this.isDetailedHeadBodyColliders())
+                component.enabled = false;
+
+
+            if (center != Vector3.zero)
+                this.boundingBox.center = center;
+
+            DisplayLog(" After BoundaryBox: " + this.boundingBox.ToCultureInvariantString());
+        }
+
+    }
     Vector3i lastDoorOpen;
     private float nextCheck = 0;
     public float CheckDelay = 5f;
@@ -246,6 +306,8 @@ public class EntityAliveSDX : EntityNPC
     }
     public override void SetAttackTarget(EntityAlive _attackTarget, int _attackTargetTime)
     {
+
+
         RestoreSpeed();
         base.SetAttackTarget(_attackTarget, _attackTargetTime);
     }
@@ -268,6 +330,9 @@ public class EntityAliveSDX : EntityNPC
             if (OpenDoor())
                 return true;
         }
+
+        if ( this.GetAttackTarget() != null )
+            this.RotateTo( this.GetAttackTarget() , 30f, 30f);
 
         ItemAction itemAction = this.inventory.holdingItem.Actions[0];
         if (itemAction != null)
@@ -305,8 +370,8 @@ public class EntityAliveSDX : EntityNPC
         uiforPlayer.xui.Dialog.otherEntitySDX = this;
         base.OnEntityActivated(_indexInBlockActivationCommands, _tePos, _entityFocusing);
 
-    
-       return true;
+
+        return true;
     }
 
     public virtual bool ExecuteCMD(String strCommand, EntityPlayer player)
@@ -342,6 +407,7 @@ public class EntityAliveSDX : EntityNPC
                 this.SetLookPosition(player.GetLookVector());
                 this.GuardPosition = this.position;
                 this.getMoveHelper().Stop();
+                this.GuardLookPosition = player.GetLookVector();
                 break;
             case "Wander":
                 this.Buffs.SetCustomVar("CurrentOrder", (float)EntityAliveSDX.Orders.Wander, true);
@@ -378,6 +444,12 @@ public class EntityAliveSDX : EntityNPC
                 this.Buffs.SetCustomVar("CurrentOrder", (float)EntityAliveSDX.Orders.Loot, true);
                 break;
 
+        }
+
+        if (this.Buffs.HasCustomVar("CurrentOrder"))
+        {
+            this.currentOrder = (Orders)this.Buffs.GetCustomVar("CurrentOrder");
+            DisplayLog(" Setting Current Order: " + this.currentOrder);
         }
         return true;
 
@@ -441,7 +513,24 @@ public class EntityAliveSDX : EntityNPC
         return false;
     }
 
-
+    public override string EntityName
+    {
+        get
+        {
+            if (strMyName == "Bob")
+                return this.entityName;
+            else
+                return this.strMyName + " the " + base.EntityName;
+        }
+        set
+        {
+            if (!value.Equals(this.entityName))
+            {
+                this.entityName = value;
+                this.bPlayerStatsChanged |= !this.isEntityRemote;
+            }
+        }
+    }
     public override void PostInit()
     {
         base.PostInit();
@@ -516,6 +605,7 @@ public class EntityAliveSDX : EntityNPC
         String strGuardPosition = _br.ReadString();
         this.GuardPosition = StringToVector3(strGuardPosition);
         this.factionId = _br.ReadByte();
+        this.GuardLookPosition = StringToVector3(_br.ReadString() );
     }
 
     public Vector3 StringToVector3(string sVector)
@@ -553,6 +643,8 @@ public class EntityAliveSDX : EntityNPC
         _bw.Write(strPatrolCoordinates);
         _bw.Write(this.GuardPosition.ToString());
         _bw.Write(this.factionId);
+        _bw.Write(this.GuardLookPosition.ToString());
+
     }
 
     public void DisplayStats()
@@ -651,11 +743,7 @@ public class EntityAliveSDX : EntityNPC
             }
         }
 
-        if (this.lastDoorOpen != Vector3i.zero)
-            if ((this.position + Vector3.back + Vector3.back) == this.lastDoorOpen.ToVector3())
-            {
-
-            }
+   
         // Check the state to see if the controller IsBusy or not. If it's not, then let it walk.
         bool isBusy = false;
         this.emodel.avatarController.TryGetBool("IsBusy", out isBusy);
@@ -669,10 +757,12 @@ public class EntityAliveSDX : EntityNPC
             base.OnUpdateLive();
         }
 
+        CanExecuteTask(this.currentOrder);
     }
 
     public bool IsInParty(int entityID)
     {
+        DisplayLog(" Checking if I am in a Party with: " + entityId);
         // This is the entity that is trying to attack me.
         Entity entityTarget = this.world.GetEntity(entityID);
         if (entityTarget == null)
@@ -685,13 +775,21 @@ public class EntityAliveSDX : EntityNPC
         EntityPlayerLocal localPlayer;
         if (this.Buffs.HasCustomVar("Leader"))
         {
+            DisplayLog(" Checking my Leader");
             // Find out who the leader is.
             int PlayerID = (int)this.Buffs.GetCustomVar("Leader");
+            DisplayLog(" My Leader ID is: " + PlayerID);
             localPlayer = this.world.GetEntity(PlayerID) as EntityPlayerLocal;
             if (localPlayer == null)
             {
                 DisplayLog("IsInParty(): I have a leader, but that leader is not an EntityPlayerLocal");
                 return false;
+            }
+
+            if (PlayerID == entityID)
+            {
+                DisplayLog("My leader hurt me. Forgiving.");
+                return true;
             }
         }
         else
@@ -701,11 +799,19 @@ public class EntityAliveSDX : EntityNPC
             return false;
         }
 
+        DisplayLog(" The Target entity is: " + entityTarget.ToString());
         // Let's check if a player is being hurt.
-        if (entityTarget is EntityPlayer)
+        if (entityTarget is EntityPlayerLocal)
         {
+            DisplayLog(" Target Entity is a Player.");
+            if (localPlayer == null)
+            {
+                DisplayLog(" Local Player is null.");
+            }
+
+
             // If another player, who is part of my leader's party hurts me, ignore it.
-            if (localPlayer.Party.ContainsMember(entityTarget as EntityPlayer))
+            if (localPlayer.Party.ContainsMember(entityTarget as EntityPlayerLocal))
             {
                 DisplayLog("IsInParty():  Enemy that attacked me is a player, but is party of my leader's party. Forgiving friendly fire.");
                 return true;

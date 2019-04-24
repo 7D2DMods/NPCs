@@ -3,7 +3,7 @@ Blooms Animal Husbandry
 
 The Bloom's Animal Husbandry Mod provides sample xml for a cow, along with support XML items, such as hand item, buff sequences to control its thirst and hunger, as well as reproduction.
 
-Using a combination of a custom AI task ( EAIMaslowLevel1 ) and Buffs, animals can be guided through their entire life cycle. 
+Using a combination of A custom AI task ( EAIMaslowLevel1 ) and Buffs, animals can be guided through their entire life cycle. 
 
 Finding
 -------------------
@@ -28,7 +28,7 @@ follow their leader.
 
 Breeding
 -------------------
-Breeding is handled through buffs. For breeding to be successful, there needs to be a Male and Female version of the same animal, and they need to share the same faction. 
+Breeding is handled throuhgh a buffs. For breeding to be successful, there needs to be a Male and Female version of the same animal, and they need to share the same faction. 
 
 When the adults recieve the buffAnimalAdult buff, they'll be affected by one of two effect groups, depending on their gender:
 
