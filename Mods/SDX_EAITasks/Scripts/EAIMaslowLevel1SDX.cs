@@ -206,13 +206,13 @@ class EAIMaslowLevel1SDX : EAIApproachSpot
         }
         Vector3 lookPosition = this.investigatePos;
         lookPosition.y += 0.8f;
-       // this.theEntity.SetLookPosition(lookPosition);
+        this.theEntity.SetLookPosition(lookPosition);
 
         // if the entity is blocked by anything, switch it around and tell it to find a new path.
         if (this.theEntity.moveHelper.BlockedTime > 1f)
         {
             this.pathRecalculateTicks = 0;
-           // this.theEntity.SetLookPosition(lookPosition - Vector3.back);
+            this.theEntity.SetLookPosition(lookPosition - Vector3.back);
         }
         if (--this.pathRecalculateTicks <= 0)
         {
@@ -268,14 +268,15 @@ class EAIMaslowLevel1SDX : EAIApproachSpot
         if (++this.investigateTicks > 40)
         {
             this.investigateTicks = 0;
-            if (!this.theEntity.HasInvestigatePosition)
-                return false; // no invesitgative position
+            return false;
+            //if (!this.theEntity.HasInvestigatePosition)
+            //    return false; // no invesitgative position
 
-            float sqrMagnitude = (this.investigatePos - this.theEntity.InvestigatePosition).sqrMagnitude;
-            if (sqrMagnitude >= 4f)
-            {
-                return false; // not close enough.
-            }
+            //float sqrMagnitude = (this.investigatePos - this.theEntity.InvestigatePosition).sqrMagnitude;
+            //if (sqrMagnitude >= 4f)
+            //{
+            //    return false; // not close enough.
+            //}
         }
 
         float sqrMagnitude2 = (this.seekPos - this.theEntity.position).sqrMagnitude;
@@ -294,7 +295,7 @@ class EAIMaslowLevel1SDX : EAIApproachSpot
 
         //if (this.investigatePos != Vector3.zero)
         //{
-     //       this.theEntity.SetLookPosition(seekPos);
+            this.theEntity.SetLookPosition(seekPos);
 
         //    Ray lookRay = new Ray(this.theEntity.position, theEntity.GetLookVector());
         //    if (!Voxel.Raycast(this.theEntity.world, lookRay, Constants.cDigAndBuildDistance, -538480645, 4095, 0f))
